@@ -1,0 +1,253 @@
+.about-page {
+  min-height: calc(100vh - 70px);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.about-hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 100px 0;
+  text-align: center;
+}
+
+.about-hero-content h1 {
+  font-size: 48px;
+  font-weight: 800;
+  margin: 0 0 20px 0;
+}
+
+.about-hero-content p {
+  font-size: 20px;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+.about-story {
+  padding: 100px 0;
+  background: white;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.story-content h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 30px 0;
+}
+
+.story-content p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #666;
+  margin: 0 0 20px 0;
+}
+
+.story-content p:last-child {
+  margin-bottom: 0;
+}
+
+.story-image {
+  display: flex;
+  justify-content: center;
+}
+
+.story-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+}
+
+.story-card h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 20px 0 10px 0;
+}
+
+.story-card p {
+  opacity: 0.9;
+  margin: 0;
+}
+
+.tech-stack {
+  padding: 100px 0;
+  background: #f8f9fa;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 60px 0;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+}
+
+.tech-card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.tech-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.tech-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin: 20px 0 15px 0;
+}
+
+.tech-card p {
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 14px;
+}
+
+.tech-card svg {
+  color: #667eea;
+}
+
+.mission-section {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+  color: white;
+  text-align: center;
+}
+
+.mission-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.mission-icon {
+  background: rgba(255, 255, 255, 0.1);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 30px auto;
+}
+
+.mission-content h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0 0 30px 0;
+}
+
+.mission-content p {
+  font-size: 20px;
+  line-height: 1.7;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.values-section {
+  padding: 100px 0;
+  background: white;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 50px;
+}
+
+.value-item {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.value-item h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 15px 0;
+  position: relative;
+}
+
+.value-item h3::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+.value-item p {
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .about-hero-content h1 {
+    font-size: 36px;
+  }
+  
+  .about-hero-content p {
+    font-size: 18px;
+  }
+  
+  .story-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .story-content h2 {
+    font-size: 28px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+  }
+  
+  .mission-content h2 {
+    font-size: 28px;
+  }
+  
+  .mission-content p {
+    font-size: 18px;
+  }
+  
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
