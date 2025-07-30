@@ -1,16 +1,47 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MessageCircle, Zap, Shield, Users } from 'lucide-react';
 import './Home.css';
 
 const Home = () => {
+  const rawText = 'welcome to chatbot ai';
+  const fullText = rawText
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' '); // becomes "Welcome To Chatbot Ai"
+
+  const typingSpeed = 100;
+  const delayBetweenLoops = 3000;
+
+  const [text, setText] = useState('');
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    let typingTimeout;
+
+    if (index < fullText.length) {
+      typingTimeout = setTimeout(() => {
+        setText(prev => prev + fullText.charAt(index));
+        setIndex(prev => prev + 1);
+      }, typingSpeed);
+    } else {
+      typingTimeout = setTimeout(() => {
+        setText('');
+        setIndex(0);
+      }, delayBetweenLoops);
+    }
+
+    return () => clearTimeout(typingTimeout);
+  }, [index, fullText]);
+
   return (
     <div className="home-page">
       <section className="hero-section">
         <div className="hero-container">
           <div className="hero-content">
-            <h1 className="hero-title">
-              Welcome to <span className="gradient-text">ChatBot AI</span>
+            <h1 className="hero-title typing-text">
+              <span>{text}</span>
+              <span className="cursor">|</span>
             </h1>
             <p className="hero-description">
               Experience the future of AI conversation with multiple advanced models. 
@@ -84,3 +115,5 @@ const Home = () => {
 };
 
 export default Home;
+
+

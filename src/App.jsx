@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider, useAuth } from './contexts/AuthContext';  // contexts plural, correct
+import { AuthProvider, useAuth } from './contexts/AuthContext';
 import Navbar from './components/Navbar/Navbar';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import LoginForm from './components/LoginForm/LoginForm';
@@ -9,6 +8,7 @@ import Home from './pages/Home/Home';
 import About from './pages/About/About';
 import Contact from './pages/Contact/Contact';
 import Chat from './pages/Chat/Chat';
+import CanvasCursor from './components/CanvasCursor';
 import './styles/global.css';
 import './components/ProtectedRoute/ProtectedRoute.css';
 
@@ -16,14 +16,17 @@ const AppContent = () => {
   const { user } = useAuth();
 
   return (
-
     <Router>
-      <div className="app">
+      <div className="app" style={{ position: 'relative' }}>
         <Navbar />
+
+        {/* CanvasCursor only renders; inside it will decide if animation runs based on dark mode */}
+        <CanvasCursor />
+
         <Routes>
-          <Route 
-            path="/login" 
-            element={user ? <Navigate to="/" replace /> : <LoginForm />} 
+          <Route
+            path="/login"
+            element={user ? <Navigate to="/" replace /> : <LoginForm />}
           />
           <Route
             path="/"
@@ -70,7 +73,6 @@ function App() {
       <AppContent />
     </AuthProvider>
   );
-
 }
 
 export default App;
