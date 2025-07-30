@@ -399,3 +399,116 @@ body.dark .typing-text {
 }
 
 
+/* Footer Base Styles */
+.footer-section {
+  background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+  color: white;
+  padding: 30px 20px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-policy-links {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.footer-policy-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.footer-policy-links a:hover {
+  color: #1de9b6;
+}
+
+.footer-copy {
+  color: #ccc;
+  font-size: 13px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-link {
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.social-link:hover {
+  color: #1de9b6; /* matching cta gradient green */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-policy-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-links {
+    gap: 15px;
+  }
+}
+
+/* Dark Mode Footer */
+.dark .footer-section {
+  background: #0d1117;
+  border-top: 1px solid rgba(29, 233, 182, 0.3);
+  color: #f0f0f0;
+}
+
+.dark .social-link,
+.dark .footer-policy-links a {
+  color: #f0f0f0;
+}
+
+.dark .social-link:hover,
+.dark .footer-policy-links a:hover {
+  color: #1de9b6;
+}
+
+/* Footer policy links base style */
+.footer-policy-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, text-shadow 0.3s ease, filter 0.3s ease;
+}
+
+/* Hover glow effect */
+.footer-policy-link:hover {
+  color: #1de9b6;
+  text-shadow: 0 0 8px #1de9b6, 0 0 15px #00bfa5;
+  filter: drop-shadow(0 0 6px #1de9b6);
+}
+
+/* Dark mode base */
+.dark .footer-policy-link {
+  color: #f0f0f0;
+}
+
+/* Dark mode hover glow */
+.dark .footer-policy-link:hover {
+  color: #1de9b6;
+  text-shadow: 0 0 10px #1de9b6, 0 0 20px #00bfa5;
+  filter: drop-shadow(0 0 8px #1de9b6);
+}
