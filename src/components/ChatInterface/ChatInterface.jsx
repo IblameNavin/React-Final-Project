@@ -3,6 +3,7 @@ import { Send, Bot, User, Loader } from 'lucide-react';
 import { sendMessage, getAvailableModels } from '../../services/api';
 import './ChatInterface.css';
 
+
 const ChatInterface = () => {
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
@@ -183,3 +184,5 @@ const ChatInterface = () => {
 };
 
 export default ChatInterface;
+
+

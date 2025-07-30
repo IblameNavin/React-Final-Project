@@ -1,13 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
-import { Home, Info, Mail, LogOut, MessageCircle } from 'lucide-react';
+import { Home, Info, Mail, LogOut, MessageCircle, Sun, Moon } from 'lucide-react';
 import './Navbar.css';
 
 const Navbar = () => {
   const { user, logout } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+      setIsDark(true);
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    document.documentElement.classList.toggle('dark');
+    const newTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    setIsDark(newTheme === 'dark');
+    localStorage.setItem('theme', newTheme);
+  };
 
   const handleLogout = () => {
     logout();
@@ -23,7 +39,7 @@ const Navbar = () => {
           <MessageCircle size={24} />
           <span>ChatBot AI</span>
         </Link>
-        
+
         <div className="navbar-menu">
           <Link 
             to="/" 
@@ -59,7 +75,22 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-user">
+          {/* Toggle switch */}
+          <input 
+            type="checkbox" 
+            id="checkboxInput" 
+            checked={isDark} 
+            onChange={toggleTheme} 
+            style={{ display: 'none' }} 
+          />
+          <label htmlFor="checkboxInput" className="toggleSwitch" aria-label="Toggle dark mode">
+            <div className="toggle-knob">
+              {isDark ? <Sun size={16} /> : <Moon size={16} />}
+            </div>
+          </label>
+
           <span className="user-name">Hello, {user.name}</span>
+
           <button onClick={handleLogout} className="logout-btn">
             <LogOut size={18} />
             <span>Logout</span>

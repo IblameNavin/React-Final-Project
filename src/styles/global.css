@@ -16,6 +16,24 @@ body {
   background-color: #f8f9fa;
 }
 
+body,
+.home-page,
+.hero-section,
+.feature-card,
+.cta-section {
+  transition: all 0.3s ease-in-out;
+}
+.about-page,
+.about-hero,
+.about-story,
+.tech-stack,
+.values-section,
+.mission-section {
+  transition: all 0.3s ease-in-out;
+}
+
+
+
 /* Remove default button styles */
 button {
   font-family: inherit;

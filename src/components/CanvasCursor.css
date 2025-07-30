@@ -1,0 +1,14 @@
+src/components/CanvasCursor.css
+.cursor-aura {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,255,255,0.3), rgba(0,0,0,0));
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: left 0.08s ease, top 0.08s ease;
+  filter: blur(10px);
+  mix-blend-mode: screen;
+}
