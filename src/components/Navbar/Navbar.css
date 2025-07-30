@@ -54,13 +54,13 @@
 }
 
 .navbar-link:hover {
-  color: #2fff9a;
+  color: black;
   background: rgba(46, 89, 61, 0.1);
   transform: translateY(-2px);
 }
 
 .navbar-link.active {
-  color: #2fff9a;
+  color: black;
   background: rgba(46, 89, 61, 0.15);
 }
 
