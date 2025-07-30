@@ -1,12 +1,12 @@
 .navbar {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(240, 255, 240, 0.95); /* light green tint */
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(0, 128, 0, 0.1);
   padding: 0 20px;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
 }
 
 .navbar-container {
@@ -23,14 +23,14 @@
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  color: #333;
+  color: #1a3c2f; /* deep forest green */
   font-weight: 700;
   font-size: 20px;
   transition: all 0.3s ease;
 }
 
 .navbar-brand:hover {
-  color: #667eea;
+  color: #3ecf8e;
   transform: translateY(-2px);
 }
 
@@ -45,7 +45,7 @@
   align-items: center;
   gap: 6px;
   text-decoration: none;
-  color: #666;
+  color: #2e593d; /* soft jungle green */
   font-weight: 500;
   padding: 8px 16px;
   border-radius: 25px;
@@ -54,14 +54,14 @@
 }
 
 .navbar-link:hover {
-  color: #667eea;
-  background: rgba(102, 126, 234, 0.1);
+  color: #2fff9a;
+  background: rgba(46, 89, 61, 0.1);
   transform: translateY(-2px);
 }
 
 .navbar-link.active {
-  color: #667eea;
-  background: rgba(102, 126, 234, 0.15);
+  color: #2fff9a;
+  background: rgba(46, 89, 61, 0.15);
 }
 
 .navbar-link.active::after {
@@ -72,7 +72,7 @@
   transform: translateX(-50%);
   width: 4px;
   height: 4px;
-  background: #667eea;
+  background: #2fff9a;
   border-radius: 50%;
 }
 
@@ -83,15 +83,16 @@
 }
 
 .user-name {
-  color: #333;
+  color: #1a3c2f;
   font-weight: 500;
 }
 
+/* Logout Button */
 .logout-btn {
   display: flex;
   align-items: center;
   gap: 6px;
-  background: #ff4757;
+  background: #4caf50;
   color: white;
   border: none;
   padding: 8px 16px;
@@ -102,9 +103,106 @@
 }
 
 .logout-btn:hover {
-  background: #ff3838;
+  background: #43a047;
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255, 71, 87, 0.3);
+  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+}
+
+/* TOGGLE SWITCH STYLES */
+
+/* Hide native checkbox */
+#checkboxInput {
+  display: none;
+}
+
+/* Toggle switch container */
+.toggleSwitch {
+  position: relative;
+  width: 50px;
+  height: 30px;
+  background-color: rgb(82, 82, 82);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  border: 1.5px solid transparent;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+/* The sliding knob */
+.toggle-knob {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  height: 22px;
+  width: 22px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: left 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+  border: 1.5px solid #ccc;
+  z-index: 2;
+}
+
+/* When toggled ON */
+#checkboxInput:checked + .toggleSwitch {
+  background-color: #525252;
+}
+
+/* Move knob right on toggle */
+#checkboxInput:checked + .toggleSwitch .toggle-knob {
+  left: calc(100% - 27px);
+  background-color: #ddd;
+  border-color: #bbb;
+}
+
+/* Black icons inside the knob */
+.toggle-knob svg {
+  color: black !important;
+  filter: none !important;
+}
+
+/* DARK MODE */
+.dark {
+  background-color: #0d1117;
+  color: #d1ffe2;
+}
+
+.dark .navbar {
+  background: #0f1e1b;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+
+.dark .navbar-brand {
+  color: #aefac2;
+}
+
+.dark .navbar-link {
+  color: #d1ffe2;
+}
+
+.dark .navbar-link:hover,
+.dark .navbar-link.active {
+  color: #4cffad;
+  background: rgba(76, 255, 173, 0.1);
+}
+
+.dark .user-name {
+  color: #c2ffd6;
+}
+
+.dark .logout-btn {
+  background: #66bb6a;
+}
+
+.dark .logout-btn:hover {
+  background: #4caf50;
+  box-shadow: 0 5px 15px rgba(102, 187, 106, 0.3);
 }
 
 /* Mobile Responsive */
@@ -114,7 +212,7 @@
     height: auto;
     padding: 10px 0;
   }
-  
+
   .navbar-menu {
     order: 3;
     width: 100%;
@@ -122,15 +220,15 @@
     margin-top: 10px;
     gap: 20px;
   }
-  
+
   .navbar-link span {
     display: none;
   }
-  
+
   .user-name {
     display: none;
   }
-  
+
   .logout-btn span {
     display: none;
   }
